@@ -14,3 +14,10 @@
 .list {
 	flex: 1 1 30%;
 }
+
+/* 780px / 16 = 48 */
+@media screen and (max-width: 48rem) {
+	.content {
+		flex-direction: column;
+	}
+}
