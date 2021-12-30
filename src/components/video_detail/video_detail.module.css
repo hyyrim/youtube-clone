@@ -1,0 +1,8 @@
+.detail {
+	padding: 0.2em;
+}
+
+.description {
+	overflow: visible;
+	white-space: pre-wrap;
+}

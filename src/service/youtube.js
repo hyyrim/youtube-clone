@@ -7,24 +7,22 @@ class Youtube {
 		};
 	}
 
-	mostPopular() {
-		return fetch(
+	async mostPopular() {
+		const response = await fetch(
 			`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=${this.key}`,
 			this.getRequestOptions
-		)
-			.then((response) => response.json())
-			.then((result) => result.items);
+		);
+		const result_1 = await response.json();
+		return result_1.items;
 	}
 
-	search(query) {
-		return fetch(
+	async search(query) {
+		const response = await fetch(
 			`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=${this.key}`,
 			this.getRequestOptions
-		)
-			.then((response) => response.json())
-			.then((result) =>
-				result.items.map((item) => ({ ...item, id: item.id.videoId }))
-			);
+		);
+		const result_1 = await response.json();
+		return result_1.items.map((item) => ({ ...item, id: item.id.videoId }));
 	}
 }
 
